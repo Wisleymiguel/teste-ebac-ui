@@ -40,7 +40,7 @@ describe('Funcionalidade: Login', () => {
     
    });
 
-   it.only('deve fazer login com sucesso - usando Fixture ', () => {
+   it('deve fazer login com sucesso - usando Fixture ', () => {
     cy.fixture('perfil').then(dados=>{ 
       cy.get('#username').type(dados.usuario,{log:false})
       cy.get('#password').type(dados.senha,{log:false})
@@ -50,6 +50,12 @@ describe('Funcionalidade: Login', () => {
 
     })
     
+   }); 
+
+   it.only('Deve fazer login com sucesso - usando Comandos customizados  ', () => {
+    
+    cy.login('wisley.teste@teste.com.br', 'teste@123')
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should ('contain', 'Olá, wisley.teste (não é wisley.teste? Sair)')
    });
 
   });
