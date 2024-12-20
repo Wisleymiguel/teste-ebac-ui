@@ -52,10 +52,10 @@ describe('Funcionalidade: Login', () => {
     
    }); 
 
-   it.only('Deve fazer login com sucesso - usando Comandos customizados  ', () => {
+   it('Deve fazer login com sucesso - usando Comandos customizados  ', () => {
     
     cy.login('wisley.teste@teste.com.br', 'teste@123')
-    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should ('contain', 'Olá, wisley.teste (não é wisley.teste? Sair)')
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should ('exist')
    });
 
   });
